@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="fill_parent"-->
+<!--        android:layout_height="fill_parent"-->
+<!--        android:orientation="vertical"-->
+<!--        tools:ignore="MissingConstraints">-->
+
+<!--        <ImageView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="150dp"-->
+<!--            android:maxHeight="200dp"-->
+<!--            android:layout_gravity="center_vertical|center_horizontal"-->
+<!--            android:src="@drawable/discogs_logo" />-->
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginHorizontal="30dp"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:text="Stab!" />-->
+<!--        <Button-->
+<!--            style="@style/button"-->
+<!--            android:id="@+id/oauthVerifierBtn"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignParentTop="true"-->
+<!--            android:text="Obtain oauth verifier"-->
+<!--            android:layout_marginVertical="10dp"-->
+<!--            android:layout_gravity="center_vertical|center_horizontal"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            tools:ignore="MissingConstraints" />-->
+
+<!--        <EditText-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginHorizontal="20dp"-->
+<!--            android:layout_marginVertical="10dp"-->
+<!--            android:id="@+id/oauthVerifier"-->
+<!--            android:inputType="text"-->
+<!--            style="@style/edit_text"-->
+<!--            />-->
+
+<!--        <Button-->
+<!--            style="@style/button"-->
+<!--            android:id="@+id/requestAccessTokenBtn"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignParentTop="true"-->
+<!--            android:text="Request Access Token"-->
+<!--            android:layout_marginVertical="10dp"-->
+<!--            android:layout_gravity="center_vertical|center_horizontal"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            tools:ignore="MissingConstraints" />-->
+<!--    </LinearLayout>-->
+
+    <androidx.fragment.app.FragmentContainerView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/start_fragment_container_view"
+        android:name="com.example.discogs.FirstFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+<!--    <androidx.fragment.app.FragmentContainerView-->
+<!--        xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--        android:id="@+id/access_token_fragment_container_view"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent" />-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>
