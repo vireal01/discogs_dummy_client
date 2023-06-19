@@ -1,26 +1,23 @@
-package com.example.discogs
+package com.example.discogs.ui.signIn
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
-import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.example.discogs.R
 import com.example.discogs.di.DI
 import com.example.discogs.network.api.Api
 import kotlinx.coroutines.DelicateCoroutinesApi
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 class AccessTokenFragment : Fragment() {
+    @OptIn(DelicateCoroutinesApi::class)
     @SuppressLint("MissingInflatedId")
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
@@ -36,23 +33,16 @@ class AccessTokenFragment : Fragment() {
         rootView.findViewById<Button>(R.id.requestAccessTokenBtn).setOnClickListener {
             GlobalScope.launch {
                 if (editText.text.toString() != "") {
-                    val oauth_verifier = editText.text
-                    println(editText.text)
-                    val oauth_token = sharedPref?.getString("oauthToken", "no oauth token stored")
-                        .orEmpty()
-                    val authHeader = Api.getSecondOauthHeader(
-                        oauth_token = oauth_token,
-                        oauth_verifier = oauth_verifier.toString()
-                    )
-                    val accessToken = DI.dicogsService.getAccessToken(authHeader)
+                    val oauthVerifier = editText.text
+                    Api.updateRefreshToken()
 
+                    val authHeader = Api.getSecondOauthHeader(
+                        oauth_verifier = oauthVerifier.toString()
+                    )
+                    val accessToken = DI.discogsService.getAccessToken(authHeader)
                     editor?.putString("accessToken", accessToken)
                     editor?.apply()
 
-                } else {
-                    // idk why, but it doesn't work
-//                    Log.d("discogs debug", editText.text.toString())
-//                    triggerToast()
                 }
             }
         }

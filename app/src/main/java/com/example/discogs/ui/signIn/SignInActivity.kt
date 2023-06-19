@@ -1,11 +1,11 @@
-package com.example.discogs
+package com.example.discogs.ui.signIn
 
 import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.commit
 import androidx.fragment.app.add
-
+import com.example.discogs.R
 
 
 class SignInActivity : AppCompatActivity() {

@@ -24,7 +24,7 @@ object DI {
             .build()
     }
 
-    val dicogsService by lazy {
+    val discogsService by lazy {
         retrofit.create(Api::class.java)
     }
 }
