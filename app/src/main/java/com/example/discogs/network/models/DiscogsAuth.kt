@@ -11,15 +11,19 @@ data class DiscogsAuth(
     var hello: String? = null,
 )
 
+
 data class AuthUser(
     var oauth_token: String,
     var oauth_token_secret: String,
     var oauth_consumer_key: String,
     var oauth_signature: String,
     var access_token: String,
-    var extended_oauth_signature: String
+    var extended_oauth_signature: String,
+    var userName: String
 ) {
     companion object {
+        // AvatarUtils - usage of singleton
+        @Volatile
         private var instance: AuthUser? = null
 
         fun getInstance(): AuthUser {
@@ -30,7 +34,9 @@ data class AuthUser(
                     "yTiqkuuoLzzcgDFFJcTs",
                     "yWgUGThaNSwQZAAKOeKQEYUfmlDCVOCt",
                     "",
-                "")
+                    "",
+                    ""
+                )
             }
             return instance!!
         }
@@ -40,7 +46,7 @@ data class AuthUser(
         }
 
         fun createExtendedOauthSignature(plusOauthSignature: String) {
-            instance?.extended_oauth_signature = "${ instance?.oauth_signature}&$plusOauthSignature"
+            instance?.extended_oauth_signature = "${instance?.oauth_signature}&$plusOauthSignature"
         }
 
         fun setOauthTokenSecret(oauthTokenSecret: String) {
@@ -57,6 +63,10 @@ data class AuthUser(
 
         fun setAccessToken(accessToken: String) {
             instance?.access_token = accessToken
+        }
+
+        fun setUserName(userName: String) {
+            instance?.userName = userName
         }
     }
 }

@@ -33,7 +33,9 @@ android {
 }
 
 dependencies {
-
+//    implementation libs.timber
+    implementation 'com.github.mrmike:ok2curl:0.8.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.11.0'
     implementation 'androidx.core:core-ktx:1.8.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.9.0'
@@ -46,4 +48,7 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-scalars:2.9.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:4.11.0'
     implementation 'androidx.fragment:fragment-ktx:1.6.0'
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.6.1"
+
 }

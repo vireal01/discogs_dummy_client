@@ -11,7 +11,7 @@ import android.widget.EditText
 import androidx.fragment.app.Fragment
 import com.example.discogs.R
 import com.example.discogs.di.DI
-import com.example.discogs.network.api.Api
+import com.example.discogs.network.api.OauthApi
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -23,7 +23,6 @@ class AccessTokenFragment : Fragment() {
         // Inflate the layout for this fragment
         val rootView =  inflater.inflate(R.layout.access_token_fragment, container, false)
 
-
         super.onCreate(savedInstanceState)
         val sharedPref = context?.getSharedPreferences("prefs", Context.MODE_PRIVATE)
         val editor = sharedPref?.edit()
@@ -34,9 +33,9 @@ class AccessTokenFragment : Fragment() {
             GlobalScope.launch {
                 if (editText.text.toString() != "") {
                     val oauthVerifier = editText.text
-                    Api.updateRefreshToken()
+                    OauthApi.updateRefreshToken()
 
-                    val authHeader = Api.getSecondOauthHeader(
+                    val authHeader = OauthApi.getSecondOauthHeader(
                         oauth_verifier = oauthVerifier.toString()
                     )
                     val accessToken = DI.discogsService.getAccessToken(authHeader)

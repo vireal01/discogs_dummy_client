@@ -33,6 +33,49 @@
             android:layout_gravity="center_vertical|center_horizontal"
             android:layout_marginVertical="10dp"
             android:text="Obtain oauth verifier" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="10dp"
+            android:text="Enter your personal token or click sign to use mock token" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/personalTokenEditText"
+                style="@style/edit_text"
+                android:layout_width="231dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginVertical="10dp"
+                android:inputType="text" />
+
+            <Button
+                android:id="@+id/validateToken"
+                style="@style/button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:layout_marginVertical="10dp"
+                android:text="Validate token" />
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/loginWithPredefinedToken"
+            style="@style/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginVertical="10dp"
+            android:text="Use predefined moc token" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

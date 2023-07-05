@@ -1,4 +1,4 @@
-package com.example.discogs.ui.signIn
+package com.example.discogs.ui.main
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -8,16 +8,16 @@ import androidx.fragment.app.add
 import com.example.discogs.R
 
 
-class SignInActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
     @SuppressLint("ShowToast", "MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.sign_in_activity)
+        setContentView(R.layout.main_activity)
 
         if (savedInstanceState == null) {
             supportFragmentManager.commit {
                 setReorderingAllowed(true)
-                add<SignInFragment>(R.id.start_fragment_container_view)
+                add<HomeFragment>(R.id.start_fragment_container_view)
             }
         }
     }
